@@ -30,7 +30,8 @@ point cloud data is `n x k` form(`n` is the number of points and `k` is the numb
 ## lidar_cam_utils
 + ### getCameraRotation
   Return 3 x 3 rotation matrix from extrinsic parameters between LiDAR and camera.  
-  LR = left-right(yaw), UD = up-down(pitch), Rot = Rotate(roll)
+  `LR` = left-right(yaw), `UD` = up-down(pitch), `Rot` = Rotate(roll)
+  
   ``` python
   def getCameraRotation(LR,UD,Rot)
   ```
