@@ -2,9 +2,9 @@
 Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera 
 
 ## Contents
-+ [pointCloud_utils](##pointcloud_utils)
-  + [distanceFilter](####distancefilter)
-  + groundFilter
++ [pointCloud_utils](#pointcloud_utils)
+  + [distanceFilter](#distancefilter)
+  + [groundFilter](#groundfilter)
   + dbscan
   + removeShortCluster
 + lidar_cam_utils
