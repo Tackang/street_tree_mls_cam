@@ -3,23 +3,40 @@ Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera
 
 ## Contents
 + [launch.py](#launch)
+
 + [pointCloud_utils.py](#pointcloud_utils)
   + [distanceFilter](#distancefilter)
   + [groundFilter](#groundfilter) `update needed - make it work regardless of input point cloud column numbers`
-  + dbscan
-  + removeShortCluster
+  + [dbscan](#dbscan) `update needed - changing it to open3d dbscan`
+  + [removeShortCluster](#removeshortcluster)
+  + [divideCluster](#dividecluster)
+  + [getTreeCluster](#gettreecluster)
+  
 + [lidar_cam_utils.py](#lidar_cam_utils) `update needed - This part need a bit more generalization. e.g. get rotation matrix as a input instead of calculating rotation matrix from extrinsic parameters.`
   + [getCameraRotation](#getcamerarotation)
   + [lidar2cam](#lidar2cam)
   + [getSegInfo](#getseginfo)
   + [getBBinfo](#getbbinfo) 
+  
 + [imu_utils.py](#imu_utils)
   + [getTransform](#gettransform)
   + [getTransformedPointCloud](#gettransformedpointcloud)
   + [getWorldPointCloud](#getworldpointcloud)
+  
 ## launch
-point cloud preprocess : `distanceFilter` + `groundFilter`
-
+  + ### point cloud preprocess
+    `distanceFilter` + `groundFilter`
+  + ### get segmentation information from the image `update needed - RGB information gathering should be added here`
+    `getTransfromedPointCloud` Transform point cloud coordinates to the position of a car at the time image is taken.  
+    `lidar2cam` + `getSegInfo`
+    
+  + ### point cloud processing
+    `dbscan` clustering to get the objects from the point cloud  
+    `removeShortCluster` remove too short clusters  
+    `divideCluster` to divide clusters that have multiple trees  
+    `getTreeCluster` to get tree clusters from the clusters 
+  + ### tree information retrieval
+    `getBBinfo` to get the species information from the image 
 
 ## pointCloud_utils
 point cloud data is `n x k` form(`n` is the number of points and `k` is the number of point cloud attributes, e.g. intensity). First three columns have to be local(sensor) x,y,z coordinates of the point cloud
@@ -36,6 +53,28 @@ point cloud data is `n x k` form(`n` is the number of points and `k` is the numb
   
   ``` python
   def groundFilter(pointCloud, GRID_SIZE=0.5, GROUND_THICKNESS=0.25, THRESHOLD = 0.25, return_ground = False)
+  ```
++ ### dbscan
+
+  ``` python
+  def dbscan(pointCloud,EPS=1.9,MIN_POINTS=10)
+  ```
++ ### removeShortCluster
+
+  ``` python
+  def removeShortCluster(pointCloud, CLUSTER_HEIGHT= 2.5)
+  ```
++ ### divideCluster
+  Points below `THRESHOLD` is used to make the surface
+  
+  ``` python
+  def divideCluster(pointCloud, VOXEL_SIZE = 0.3, THRESHOLD = 0)
+  ```
++ ### getTreeCluster
+  `THRESHOLD` is the maximum distance between the cluster center and the point in trunk.
+  
+  ``` python
+  def getTreeCluster(pointCloud,clusterCenterDict, THRESHOLD = 0.5)
   ```
   
 ## lidar_cam_utils
