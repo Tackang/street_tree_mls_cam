@@ -4,6 +4,8 @@ Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera
 ## Contents
 + [launch.py](#launch)
 
++ [launch_tree.py](#launch_tree)
+
 + [pointCloud_utils.py](#pointcloud_utils)
   + [distanceFilter](#distancefilter)
   + [groundFilter](#groundfilter) `update needed - make it work regardless of input point cloud column numbers`
@@ -37,6 +39,8 @@ Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera
     `getTreeCluster` to get tree clusters from the clusters 
   + ### tree information retrieval
     `getBBinfo` to get the species information from the image 
+
+## launch_tree
 
 ## pointCloud_utils
 point cloud data is `n x k` form(`n` is the number of points and `k` is the number of point cloud attributes, e.g. intensity). First three columns have to be local(sensor) x,y,z coordinates of the point cloud
