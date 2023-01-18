@@ -26,6 +26,7 @@ Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera
   + [getWorldPointCloud](#getworldpointcloud)
   
 ## launch
+`issue at launch stage is that it does not work for the dataset that has an empty image(0kb)  - check the image imu path and car imu path`
   + ### point cloud preprocess
     `distanceFilter` + `groundFilter`
   + ### get segmentation information from the image `update needed - RGB information gathering should be added here`
@@ -41,6 +42,12 @@ Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera
     `getBBinfo` to get the species information from the image 
 
 ## launch_tree
+`issue : center number > cluster number`
+Merge each frame into the whole map. 
+
+## treeRefinement
+`Better performances`
+Refine tree clusters by dbscan.
 
 ## pointCloud_utils
 point cloud data is `n x k` form(`n` is the number of points and `k` is the number of point cloud attributes, e.g. intensity). First three columns have to be local(sensor) x,y,z coordinates of the point cloud
