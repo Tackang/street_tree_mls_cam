@@ -1,5 +1,6 @@
 # street_tree_mls_cam
 Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera 
+map_RGBT column info 0)x 1)y 2)z 3)intensity 4)laserID 5)R(float0-1) 6)G(float0-1) 7)B(float0-1) 8)Thermal 9)clusterID 10)species 11)x_world 12)y_world 13)z_world
 
 ## Contents
 + [launch.py](#launch)
