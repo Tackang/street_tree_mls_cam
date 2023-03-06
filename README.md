@@ -2,11 +2,17 @@
 Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera  
 ### map_RGBT column info  
 0)x 1)y 2)z 3)intensity 4)laserID 5)R(float0-1) 6)G(float0-1) 7)B(float0-1) 8)Thermal 9)clusterID 10)species 11)x_world 12)y_world 13)z_world
+### Result outline  
+launch --> launch_tree --> treeRefinement --> treeFeatureRetrieval --> resultGenerator (For dbh check)  
+center, tree per frame --> map_RGBT --> map_RGBT_rf --> inventory --> inventory_rf, dbh_data
+
 
 ## Contents
 + [launch.py](#launch)
 
 + [launch_tree.py](#launch_tree)
+
++ [treeRefinement.py](#treerefinement)
 
 + [pointCloud_utils.py](#pointcloud_utils)
   + [distanceFilter](#distancefilter)
