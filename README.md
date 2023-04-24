@@ -6,11 +6,11 @@ Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera
 launch --> launch_tree --> treeRefinement --> treeFeatureRetrieval --> resultGenerator (For dbh check)  
 center, tree per frame --> map_RGBT --> map_RGBT_rf --> inventory --> inventory_rf, dbh_data
 ### Debug Status  
-getTransformedPointCloud --> error occur when imageimu missing
-hstack(unknown) --> center misses as a result
-getThermalInfo --> lwir missing
-divideCluster --> linked to hstack
-getBBInfo --> May be labeling missing
+getTransformedPointCloud --> error occur when imageimu missing  
+hstack(unknown) --> center misses as a result  
+getThermalInfo --> lwir missing  
+divideCluster --> linked to hstack  
+getBBInfo --> May be labeling missing  
 
 ## Contents
 + [launch.py](#launch)
