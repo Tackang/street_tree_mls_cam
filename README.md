@@ -3,14 +3,24 @@ Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera
 ### map_RGBT column info  
 0)x 1)y 2)z 3)intensity 4)laserID 5)R(float0-1) 6)G(float0-1) 7)B(float0-1) 8)Thermal 9)clusterID 10)species 11)x_world 12)y_world 13)z_world
 ### Result outline  
-launch --> launch_tree --> treeRefinement --> treeFeatureRetrieval --> resultGenerator (For dbh check)  
-center, tree per frame --> map_RGBT --> map_RGBT_rf --> inventory --> inventory_rf, dbh_data
-### Debug Status  
-getTransformedPointCloud --> error occur when imageimu missing  
-hstack(unknown) --> center misses as a result  
-getThermalInfo --> lwir missing  
-divideCluster --> linked to hstack  
-getBBInfo --> May be labeling missing  
+launch --> launch_tree --> treeRefinement --> rf_featureExtract --> rf_module --> launch_groundDhm --> treeFeatureRetrieval --> tocsv --> calculateCarbon_ver2 --> MergeAllInventory  
++ treeRefinement  
+`IN: map_RGBT_{Date}.txt --> OUT: map_RGBT_{Date}_rf.txt, center_RGBT_{Date}_rf.txt`  
++ rf_featureExtract  
+`IN: map_RGBT_{Date}_rf.txt --> OUT: map_RGBT_{Date}_rf_Features.txt`  
++ rf_module  
+`IN: map_RGBT_{Date}_rf.txt, map_RGBT_{Date}_rf_Features.txt, center_RGBT_{Date}_rf.txt --> OUT: map_RGBT_{Date}_rf_final.txt, center_RGBT_{Date}_rf_final.txt`  
++ launch_groundDhm  
+`IN: center_RGBT_{Date}_rf_final.txt --> OUT: center_RGBT_{Date}_with_height.txt`  
++ treeFeatureRetrieval  
+`IN: map_RGBT_{Date}.txt, center_RGBT_{Date}_with_height.txt --> OUT: inventory_{Date}_rf_final.txt`  
++ tocsv  
+`IN: inventory_{Date}_rf_final.txt --> OUT: {folderName}_inventory_{Date}_rf_final.txt`  
++ calculateCarbon_ver2  
+`IN: {folderName}_inventory_{Date}_rf_final.txt --> OUT: {folderName}_inventory_{Date}_rf_final_ver2.csv`  
++ MergeAllInventory  
+`IN: {folderName}_inventory_{Date}_rf_final_ver2.csv --> OUT: total_inventory{Date}_ver2.csv`  
+
 
 ## Contents
 + [launch.py](#launch)
