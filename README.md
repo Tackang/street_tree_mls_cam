@@ -1,20 +1,25 @@
 # street_tree_mls_cam
 Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera  
-### Data structure  
+
+### Dataset structure  
 ```
-your data repository   
+{YOUR_DATASET_PATH}
 ⏬ RAW DATA ⏬
 ├─ 📂 1_camera  
 │  ├─ {one_digit}_{six_digit_raw_frame_number}.jpg  
 │  └─ ...    
+│ 
 ├─ 📂 2_lidar  
 │  └─ {year}-{month}-{date}-{hour}-{minute}-{second}_VLP_32C.pcap    
+│ 
 ├─ 📂 3_gps  
 │  ├─ {unique_code_for_file}.T04  
 │  └─ ...  
+│ 
 ├─ 📂 4_lwir  
 │  ├─ {one_digit}_{six_digit_raw_frame_number}.bin  
 │  └─ ...
+│ 
 ⏬ POSPAC PROCESSED ⏬
 ├─ 📂 pospac    
 │  ├─ pospac default project files  
@@ -24,32 +29,62 @@ your data repository
 ├─ event2.txt
 ├─ event2_Mission 2.dat
 ├─ output.txt
+│ 
 ⏬ PREPROCESSED DATA ⏬
 └─ 📂 preprocessed_data
    ├─ 📂 imu
-   │  ├─
+   │  ├─ {ten_digit_matched_frame_number}.txt
    │  └─ ... 
+   │ 
    ├─ 📂 pointCloudPackets
-   │  ├─ 
+   │  ├─ {ten_digit_matched_frame_number}.bin
    │  └─ ... 
+   │ 
    ├─ 📂 pointCloudFrame
-   │  ├─
+   │  ├─ {ten_digit_matched_frame_number}.bin
    │  └─ ... 
+   │ 
    ├─ 📂 image
-   │  ├─
+   │  ├─ {ten_digit_matched_frame_number}.jpg
    │  └─ ... 
+   │ 
    ├─ 📂 image_imu
-   │  ├─
+   │  ├─ {ten_digit_matched_frame_number}.txt
    │  └─ ... 
+   │ 
    ├─ 📂 lwir
-   │  ├─
+   │  ├─ {ten_digit_matched_frame_number}.bin
    │  └─ ... 
+   │ 
    └─ 📂 lwir_imu
-      ├─
+   │  ├─ {ten_digit_matched_frame_number}.txt
+   │  └─ ... 
+   │
+⏬ IMAGE PREPROCESSED DATA ⏬ 
+   └─ 📂 image_processed2
+      ├─ {ten_digit_matched_frame_number}.jpg
       └─ ... 
-  
+```
+### Raw data 
+Raw data was collected using off-the-shelf Mobile Mapping System (MMS) unit (DL-Replica; Mobiltech, Seoul, Republic of Korea). The sensor suite consisted of a LiDAR sensor (VLP-32C; Velodyne, San Jose, California, USA), an RGB camera (FLIR Blackfly; Teledyne FLIR, Wilsonville, Oregon, USA), a thermal camera (FLIR A65; Teledyne FLIR, Wilsonville, Oregon, USA), and a positioning sensor (APX-15 UAV; Trimble Applanix, Richmond Hill, Ontario, Canada) 
+
+### POSPAC preprocess
+Used commercial software POSPac-UAV 8.4 (Trimble Applanix, Richmond Hill, Ontario, Canada)
+for detail: tackangYang@gmail.com
+
+### Dataset preprocess
+Preprocessing was done for sensor alignment.
+Modify config file to choose folders to preprocess.  
+```
+cd raw_data_converter
+python raw_data_converter.py
 ```
 
+### Image preprocess (Optional)
+Image are preprocessed for the better depiction of street trees. We used a matlab code.
+```
+cd image_preprocess
+```
 
 ### map_RGBT column info  
 0)x 1)y 2)z 3)intensity 4)laserID 5)R(float0-1) 6)G(float0-1) 7)B(float0-1) 8)Thermal 9)clusterID 10)species 11)x_world 12)y_world 13)z_world
