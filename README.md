@@ -3,7 +3,7 @@ Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera
 ### Data structure  
 ```
 your data repository   
-│ # raw data
+│  ⏬ raw data
 ├─ 1_camera  
 │  ├─ {one_digit}_{six_digit_raw_frame_number}.jpg  
 │  └─ ...    
@@ -15,7 +15,7 @@ your data repository
 ├─ 4_lwir  
 │  ├─ {one_digit}_{six_digit_raw_frame_number}.bin  
 │  └─ ...
-│ # POSPAC processed
+│ ⏬ POSPAC processed
 ├─ pospac    
 │  ├─ pospac default project files  
 │  └─ ...
@@ -24,7 +24,7 @@ your data repository
 ├─ event2.txt
 ├─ event2_Mission 2.dat
 ├─ output.txt
-│ # after preprocessing raw data
+│ ⏬ after preprocessing raw data
 └─ preprocessed_data
    ├─ imu
    │  ├─
