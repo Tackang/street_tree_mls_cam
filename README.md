@@ -2,6 +2,7 @@
 Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera  
 ### Data structure
 + Raw data (from the MMS)  
+```
 your data repository (after POSPAC processing)  
 ├─ 1_camera  
 │    ├─ {one_digit}_{six_digit_frame_number}.jpg  
@@ -15,7 +16,7 @@ your data repository (after POSPAC processing)
 │    ├─ {one_digit}_{six_digit_frame_number}.bin  
 │    └─ ...  
 └─i  
-
+```
 
 
 ### map_RGBT column info  
