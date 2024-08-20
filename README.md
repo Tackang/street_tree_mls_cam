@@ -1,20 +1,20 @@
 # street_tree_mls_cam
 Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera  
 ### Data structure
-+ Raw data (from the MMS)
-your data repository (after POSPAC processing)
-├─ 1_camera
-│  ├─ {one_digit}_{six_digit_frame_number}.jpg
++ Raw data (from the MMS)  
+your data repository (after POSPAC processing)  
+├─ 1_camera  
+│  ├─ {one_digit}_{six_digit_frame_number}.jpg  
+│  └─ ...    
+├─ 2_lidar  
+│  └─ {year}-{month}-{date}-{hour}-{minute}-{second}_VLP_32C.pcap # VLP_32C is sensor name  
+├─ 3_gps  
+│  ├─ {unique_code_for_file}.T04  
 │  └─ ...  
-├─ 2_lidar
-│  └─ {year}-{month}-{date}-{hour}-{minute}-{second}_VLP_32C.pcap # VLP_32C is sensor name
-├─ 3_gps
-│  ├─ {unique_code_for_file}.T04
-│  └─ ...
-├─ 4_lwir
-│  ├─ {one_digit}_{six_digit_frame_number}.bin
-│  └─ ...
-└─i
+├─ 4_lwir  
+│  ├─ {one_digit}_{six_digit_frame_number}.bin  
+│  └─ ...  
+└─i  
 
 
 
