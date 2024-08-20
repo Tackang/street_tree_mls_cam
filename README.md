@@ -1,10 +1,11 @@
 # street_tree_mls_cam
 Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera  
 ### Data structure  
-``` python
+```
 your data repository   
+│ # raw data
 ├─ 1_camera  
-│  ├─ {one_digit}_{six_digit_frame_number}.jpg  
+│  ├─ {one_digit}_{six_digit_raw_frame_number}.jpg  
 │  └─ ...    
 ├─ 2_lidar  
 │  └─ {year}-{month}-{date}-{hour}-{minute}-{second}_VLP_32C.pcap # VLP_32C is sensor name  
@@ -12,8 +13,9 @@ your data repository
 │  ├─ {unique_code_for_file}.T04  
 │  └─ ...  
 ├─ 4_lwir  
-│  ├─ {one_digit}_{six_digit_frame_number}.bin  
+│  ├─ {one_digit}_{six_digit_raw_frame_number}.bin  
 │  └─ ...
+│ # POSPAC processed
 ├─ pospac    
 │  ├─ pospac default project files  
 │  └─ ...
@@ -22,8 +24,30 @@ your data repository
 ├─ event2.txt
 ├─ event2_Mission 2.dat
 ├─ output.txt
-└─ tkys_data # preprocessed dataset
-   └─ 
+│ # after preprocessing raw data
+└─ preprocessed_data
+   ├─ imu
+   │  ├─
+   │  └─
+   ├─ pointCloudPackets
+   │  ├─
+   │  └─
+   ├─ pointCloudFrame
+   │  ├─
+   │  └─
+   ├─ image
+   │  ├─
+   │  └─
+   ├─ image_imu
+   │  ├─
+   │  └─
+   ├─ lwir
+   │  ├─
+   │  └─
+   └─ lwir_imu
+      ├─
+      └─
+  
 ```
 
 
