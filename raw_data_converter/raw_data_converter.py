@@ -3,7 +3,6 @@ import os
 import yaml
 from utils.packet_destroyer import startt,start_velo16
 import utils.packet2frame as packet2frame
-from utils.dataset import totalDataset
 from utils.pickImages import finish
 import utils.lwirCalibration as lwirCalibration
 import utils.imageCalibration as imageCalibration
@@ -103,7 +102,7 @@ if __name__ == "__main__":
         REMOVE OPTION 0: DO NOT REMOVE EXISTING FILE\n\
         REMOVE OPTION 1: REMOVE EXISTING FILE\n"))
 
-        
+
     # Load the folderList from the YAML file
     with open('config/config.yaml', 'r') as file:
         config = yaml.safe_load(file)
