@@ -1,3 +1,5 @@
+# 😊❌❌❌ THIS REPOSITORY is still in its early days 
+
 # street_tree_mls_cam
 Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera  
 
@@ -69,8 +71,8 @@ Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera
 Raw data was collected using off-the-shelf Mobile Mapping System (MMS) unit (DL-Replica; Mobiltech, Seoul, Republic of Korea). The sensor suite consisted of a LiDAR sensor (VLP-32C; Velodyne, San Jose, California, USA), an RGB camera (FLIR Blackfly; Teledyne FLIR, Wilsonville, Oregon, USA), a thermal camera (FLIR A65; Teledyne FLIR, Wilsonville, Oregon, USA), and a positioning sensor (APX-15 UAV; Trimble Applanix, Richmond Hill, Ontario, Canada) 
 
 ### POSPAC preprocess
-Used commercial software POSPac-UAV 8.4 (Trimble Applanix, Richmond Hill, Ontario, Canada)
-for detail: tackangYang@gmail.com
+we used commercial software POSPac-UAV 8.4 (Trimble Applanix, Richmond Hill, Ontario, Canada) to preprocess position data of MMS.
+for detail, contact: tackangYang@gmail.com
 
 ### Dataset preprocess
 Preprocessing was done for sensor alignment.
@@ -84,7 +86,9 @@ python raw_data_converter.py
 Image are preprocessed for the better depiction of street trees. We used a matlab code.
 ```
 cd image_preprocess
-```
+
+
+# 😊❌❌❌ below is temp
 
 ### map_RGBT column info  
 0)x 1)y 2)z 3)intensity 4)laserID 5)R(float0-1) 6)G(float0-1) 7)B(float0-1) 8)Thermal 9)clusterID 10)species 11)x_world 12)y_world 13)z_world
