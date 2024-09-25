@@ -1,7 +1,6 @@
 # 😊❌❌❌ THIS REPOSITORY is still in its early days 
 
-# 🌳street_tree_mls_cam
-Mapping Carbon Stock of Individual Street Trees Using LiDAR-Camera Fusion-Based Mobile Mapping System
+# 🌳Mapping Carbon Stock of Individual Street Trees Using LiDAR-Camera Fusion-Based Mobile Mapping System
 
 ### Raw data 
 Raw data was collected using off-the-shelf Mobile Mapping System (MMS) unit (DL-Replica; Mobiltech, Seoul, Republic of Korea). The sensor suite consisted of a LiDAR sensor (VLP-32C; Velodyne, San Jose, California, USA), an RGB camera (FLIR Blackfly; Teledyne FLIR, Wilsonville, Oregon, USA), a thermal camera (FLIR A65; Teledyne FLIR, Wilsonville, Oregon, USA), and a positioning sensor (APX-15 UAV; Trimble Applanix, Richmond Hill, Ontario, Canada) 
