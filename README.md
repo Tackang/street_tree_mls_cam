@@ -3,7 +3,10 @@
 # street_tree_mls_cam
 Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera  
 
-### 🚗Dataset structure  
+### Raw data 
+Raw data was collected using off-the-shelf Mobile Mapping System (MMS) unit (DL-Replica; Mobiltech, Seoul, Republic of Korea). The sensor suite consisted of a LiDAR sensor (VLP-32C; Velodyne, San Jose, California, USA), an RGB camera (FLIR Blackfly; Teledyne FLIR, Wilsonville, Oregon, USA), a thermal camera (FLIR A65; Teledyne FLIR, Wilsonville, Oregon, USA), and a positioning sensor (APX-15 UAV; Trimble Applanix, Richmond Hill, Ontario, Canada) 
+
+### Dataset structure  
 ```
 {YOUR_DATASET_PATH}
 ⏬ RAW DATA ⏬
@@ -76,8 +79,7 @@ Street Tree Sensing Using Vehicle-based Mobile Laser Scanning and Camera
    │  ├─ {ten_digit_matched_frame_number}.jpg
    │  └─ ... 
 ```
-### 🚗Raw data 
-Raw data was collected using off-the-shelf Mobile Mapping System (MMS) unit (DL-Replica; Mobiltech, Seoul, Republic of Korea). The sensor suite consisted of a LiDAR sensor (VLP-32C; Velodyne, San Jose, California, USA), an RGB camera (FLIR Blackfly; Teledyne FLIR, Wilsonville, Oregon, USA), a thermal camera (FLIR A65; Teledyne FLIR, Wilsonville, Oregon, USA), and a positioning sensor (APX-15 UAV; Trimble Applanix, Richmond Hill, Ontario, Canada) 
+# Preprocess
 
 ### 🚗POSPAC preprocess
 We used commercial software POSPac-UAV 8.4 (Trimble Applanix, Richmond Hill, Ontario, Canada) to preprocess position data of MMS.
@@ -98,6 +100,8 @@ cd image_preprocess
 image_preprocess.m
 ```
 
+# Main 
+
 ### 🚗Species detection  
 Yolo_v3 for the species detection (https://github.com/ultralytics/yolov3)  
 
@@ -108,7 +112,7 @@ cd yolov3
 python detect.py --device 0,1 --source {YOUR_DATASET_PATH}/preprocessed_data/image_processed --weights ../ckpts/yolov3_best.pt --project={YOUR_DATASET_PATH}/preprocessed_data --name=image_species --img 1280 --conf 0.3 --augment --iou=0.6 --exist-ok --line-thickness 2 --save-txt --save-conf
 ```
 
-### 🚗U-Net
+### 🚗Street tree semantic segmentation
 U-Net for the semantic segmentation of street trees on images
 ```
 cd unet
