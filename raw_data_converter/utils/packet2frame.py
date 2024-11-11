@@ -1,4 +1,4 @@
-from dataset import totalDataset
+from utils.dataset import totalDataset
 import numpy as np
 import os
 import multiprocessing
@@ -125,11 +125,8 @@ def packet2frame(index, totalData, tkysPointCloudPacketDir):
 def main(baseDir, tkysPointCloudPacketDir):
 
     # totalData: 0)frameNumber; 1)imu; 2)lidar
-    totalData=totalDataset(baseDir)
+    totalData = totalDataset(baseDir)
     dataLength = len(totalData)//20
 
     pool =  multiprocessing.Pool(processes = 50)
     result = parmap.map(packet2frame, range(dataLength), totalData, tkysPointCloudPacketDir, pm_pbar=True, pm_processes = 15)
-
-if __name__ == '__main__':
-    main()

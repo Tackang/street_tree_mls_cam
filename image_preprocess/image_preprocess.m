@@ -1,21 +1,21 @@
 %% Test
 clear all
 folderNames = [
-"210803_Suwon_Ginkgo";
-"210803_Suwon_Zelkova";
-"210811_Suwon_Zelkova";
-"210811_Suwon_Prunus";
-"210811_Suwon_Mixed";
-"210826_Suwon_Mixed1";
-"210826_Suwon_Mixed2";
-"210826_Suwon_Mixed3";
-"210830_Suwon_Mixed1";
-"210910_Suwon_Mixed1";
-"210924_Suwon_Mixed1";
-"210924_Suwon_Mixed2";
-"210924_Suwon_Mixed3";
-"210924_Suwon_Mixed4";
-"210927_Suwon_Mixed1";
+% "210803_Suwon_Ginkgo";
+% "210803_Suwon_Zelkova";
+% "210811_Suwon_Zelkova";
+% "210811_Suwon_Prunus";
+% "210811_Suwon_Mixed";
+% "210826_Suwon_Mixed1";
+% "210826_Suwon_Mixed2";
+% "210826_Suwon_Mixed3";
+% "210830_Suwon_Mixed1";
+% "210910_Suwon_Mixed1";
+% "210924_Suwon_Mixed1";
+% "210924_Suwon_Mixed2";
+% "210924_Suwon_Mixed3";
+% "210924_Suwon_Mixed4";
+% "210927_Suwon_Mixed1";
 % "210927_Suwon_Mixed2";
 % "210927_Suwon_Mixed3";
 % "211001_Suwon_Mixed1";
@@ -28,6 +28,7 @@ folderNames = [
 % "211013_Suwon_Mixed4";
 % "211021_Suwon_Mixed1";
 % "211021_Suwon_Mixed2";
+"2024-08-28-12-49-28_SNU";
 ]
 
 folderNum = length(folderNames);
@@ -36,10 +37,10 @@ parfor g = 1:folderNum
     folderName = folderNames(g)
 
     inputDir= strcat("/esail3/Tackang/97CarsenseData/",folderName);
-    inputDir =  strcat(inputDir,"/tkys_data/image");
+    inputDir =  strcat(inputDir,"/preprocessed_data/image");
     % inputDir = "/bess23/Tackang/CarsenseData/210803_Suwon_Zelkova/KITTI_Final/image_00_cal";
     % outputDir = "/bess23/Tackang/CarsenseData/210803_Suwon_Zelkova/KITTI_Final/image_00_cal_processed";
-    outputDir = strcat(inputDir,"_processed2/");
+    outputDir = strcat(inputDir,"_processed/");
     check = exist(outputDir,'dir');
     if check ==0
         mkdir(outputDir);

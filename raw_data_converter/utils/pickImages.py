@@ -13,12 +13,11 @@ def get_file_mission(numdict_reverse,cameraDir):
         try:
             file_mission_dict[numdict_reverse[int(name.split('.')[0].split('_')[1])+100000*(int(name.split('_')[0])-1)]]=name
         except KeyError:
-            with open(os.path.join(cameraDir, '../tkys_data/image_log.txt'), 'a') as log:
+            with open(os.path.join(cameraDir, '../preprocessed_data/image_log.txt'), 'a') as log:
                 log.write(f'KeyError: {name} not in event1_Mission file\n')
         except Exception as e:
             print('Error in get_file_mission/',e)
-    return file_mission_dict
-    '''         {미션파일 시간 :파일이름 }   ex)  183634.123412: 1_000123.jpg     /   183636.123123 :0_000231.bin       '''
+    return file_mission_dict # {mission file time : file name }   ex)  183634.123412: 1_000123.jpg     /   183636.123123 :0_000231.bin 
 
 
 def get_file_mission_lwir(numdict_reverse,lwirDir):
@@ -28,12 +27,11 @@ def get_file_mission_lwir(numdict_reverse,lwirDir):
         try:
             file_mission_dict[numdict_reverse[int(name.split('.')[0].split('_')[1])+100000*int(name.split('_')[0])]]=name
         except KeyError:
-            with open(os.path.join(lwirDir, '../tkys_data/lwir_log.txt'), 'a') as log:
+            with open(os.path.join(lwirDir, '../preprocessed_data/lwir_log.txt'), 'a') as log:
                 log.write(f'KeyError: {name} not in event2_Mission file\n')
         except Exception as e:
             print('Error in get_file_mission/',e)
-    return file_mission_dict
-    '''         {미션파일 시간 :파일이름 }   ex)  183634.123412: 1_000123.jpg     /   183636.123123 :0_000231.bin       '''
+    return file_mission_dict # {mission file time : file name }   ex)  183634.123412: 1_000123.jpg     /   183636.123123 :0_000231.bin 
 
 
 
@@ -163,33 +161,3 @@ def finish(baseDir, event1Mission,event2Mission,cameraDir,lwirDir,tkysDir,tkysIm
     print('           COPYING_RENAMING')
     copying_lwir(namename_dict_l, lwirDir,tkysLwirImageDir)
     
-
-
-
-####################################################################################
-
-
-
-if __name__ == '__main__':
-    baseDir = "/esail3/Tackang/97CarsenseData/210803_Suwon_Zelkova"
-    
-    cameraDir = os.path.join(baseDir,"1_camera") 
-    
-    pcapDir = os.path.join(baseDir,"2_lidar")
-    pcapFileName = os.listdir(pcapDir)[0]
-    pcap = os.path.join(pcapDir,pcapFileName)
-    
-    lwirDir = os.path.join(baseDir,"4_lwir") 
-    
-    event1 = os.path.join(baseDir,"event1.txt")
-    event1Mission = os.path.join(baseDir,"event1_Mission 1.dat")
-    
-    event2 = os.path.join(baseDir,"event2.txt")
-    event2Mission = os.path.join(baseDir,"event2_Mission 1.dat")
-    
-    output = os.path.join(baseDir,"output_withAccel.txt")
-    tkysDir=os.path.join(baseDir,"tkys_data")
-    tkysImageDir=''
-    tkysLwirImageDir=''
-
-    finish(event1Mission,event2Mission,cameraDir,lwirDir,tkysDir,tkysImageDir,tkysLwirImageDir)
