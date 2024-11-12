@@ -1,6 +1,6 @@
 # 😊❌❌❌ THIS REPOSITORY is still in its early days 
 
-# 🌳Mapping Carbon Stock of Individual Street Trees Using LiDAR-Camera Fusion-Based Mobile Mapping System
+# 🌳 Mapping Carbon Stock of Individual Street Trees Using LiDAR-Camera Fusion-Based Mobile Mapping System
 
 ### Raw data 
 Raw data was collected using off-the-shelf **Mobile Mapping System (MMS)** unit (DL-Replica; Mobiltech, Seoul, Republic of Korea). The sensor suite consisted of a **LiDAR** (VLP-32C; Velodyne, San Jose, California, USA), an **RGB camera** (FLIR Blackfly; Teledyne FLIR, Wilsonville, Oregon, USA), a **thermal camera** (FLIR A65; Teledyne FLIR, Wilsonville, Oregon, USA), and a **positioning sensor** (APX-15 UAV; Trimble Applanix, Richmond Hill, Ontario, Canada) 
@@ -78,12 +78,12 @@ Raw data was collected using off-the-shelf **Mobile Mapping System (MMS)** unit 
    │  ├─ {ten_digit_matched_frame_number}.jpg
    │  └─ ... 
 ```
-# 🌳Preprocess
+# 🌳 Preprocess
 
-### 🚗POSPAC preprocess
+### 🚗 POSPAC preprocess
 We used commercial software POSPac-UAV 8.4 (Trimble Applanix, Richmond Hill, Ontario, Canada) to preprocess position data of MMS.
 
-### 🚗Dataset preprocess
+### 🚗 Dataset preprocess
 Preprocessing was done to align sensors.
 Modify config file to choose folders to preprocess.  
 ```
@@ -91,7 +91,7 @@ cd raw_data_converter
 python raw_data_converter.py
 ```
 
-### 🚗Image preprocess  
+### 🚗 Image preprocess  
 Image can be preprocessed for the better depiction of street trees. We used a matlab code.
 ```
 cd image_preprocess
@@ -99,9 +99,9 @@ cd image_preprocess
 image_preprocess.m
 ```
 
-# 🌳Main 
+# 🌳 Main 
 
-### 🚗Species detection  
+### 🚗 Species detection  
 Yolo_v3 for the species detection (https://github.com/ultralytics/yolov3)  
 
 ```
@@ -111,7 +111,7 @@ cd main/yolov3
 python detect.py --device 0,1 --source {YOUR_DATASET_PATH}/preprocessed_data/image_processed --weights ../../ckpts/yolov3_best.pt --project={YOUR_DATASET_PATH}/preprocessed_data --name=image_species --img 1280 --conf 0.3 --augment --iou=0.6 --exist-ok --line-thickness 2 --save-txt --save-conf
 ```
 
-### 🚗Street tree semantic segmentation
+### 🚗 Street tree semantic segmentation
 U-Net for the semantic segmentation of street trees on images
 ```
 cd main/unet
@@ -119,7 +119,7 @@ python test.py '{YOUR_DATASET_PATH}/preprocessed_data/image_processed' '{YOUR_DA
 
 ```  
 
-### 🚗Single frame processing
+### 🚗 Single frame processing
 Conduct processing for single frames.  
 Result files will be located in `{YOUR_DATASET_PATH}/result`. This path is further called `{YOUR_RESULT_PATH}`
 
@@ -128,21 +128,21 @@ cd main
 python launch_sf.py
 ```  
 
-### 🚗Single frame to multi frame
+### 🚗 Single frame to multi frame
 Merge single frames to multi frame
 ```
 cd main
 python launch_mf.py '{YOUR_RESULT_PATH}'
 ```  
 
-### 🚗Pseudo-plane filter
+### 🚗 Pseudo-plane filter
 Apply pseudo-plane filter
 ```
 cd main
 python launch_ppfilter.py '{YOUR_RESULT_PATH}'
 ```  
   
-### 🚗Random Forest classfication
+### 🚗 Random Forest classfication
 Apply Random Forest classifier
 ```
 cd main
