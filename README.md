@@ -121,7 +121,6 @@ python test.py '{YOUR_DATASET_PATH}/preprocessed_data/image_processed' '{YOUR_DA
 
 ### 🚗 Single frame processing
 Conduct processing for single frames.  
-Result files will be located in `{YOUR_DATASET_PATH}/result`. This path is further called `{YOUR_RESULT_PATH}`
 
 ```
 cd main
@@ -132,22 +131,22 @@ python launch_sf.py
 Merge single frames to multi frame
 ```
 cd main
-python launch_mf.py '{YOUR_RESULT_PATH}'
+python launch_mf.py 
 ```  
 
 ### 🚗 Pseudo-plane filter
 Apply pseudo-plane filter
 ```
 cd main
-python launch_ppfilter.py '{YOUR_RESULT_PATH}'
+python launch_ppfilter.py 
 ```  
   
 ### 🚗 Random Forest classfication
 Apply Random Forest classifier
 ```
 cd main
-python rf_feature.py '{YOUR_RESULT_PATH}'
-python rf_infer.py '{YOUR_RESULT_PATH}'
+python rf_feature.py 
+python rf_infer.py 
 ```
 
 # 😊❌❌❌ below is temp

@@ -1,4 +1,4 @@
-from mms_dataset import mmsDataset
+from dataset.mms_dataset import mmsDataset
 import utils.pointCloud_utils as pointCloud_utils
 import utils.lidar_cam_utils as lidar_cam_utils
 import utils.lidar_lwircam_utils as lidar_lwircam_utils
@@ -123,10 +123,9 @@ if __name__ == '__main__':
     # log = []
     for idx in range(len(folderList)):
         print(f"Single frame processing for {folderList[idx]}")
-        MODEL_TIME = datetime.datetime.now(pytz.timezone("Asia/Seoul")).strftime("%Y-%m-%d_%Hh%M")
         
         start_time = time.time()
-        resultPath = os.path.join(rootPath,folderList[idx],"result",MODEL_TIME)
+        resultPath = os.path.join(rootPath,folderList[idx],"result")
         os.makedirs(resultPath, exist_ok = True)
         dataPath= os.path.join(rootPath,folderList[idx],"preprocessed_data")
 
