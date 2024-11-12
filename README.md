@@ -115,15 +115,39 @@ python detect.py --device 0,1 --source {YOUR_DATASET_PATH}/preprocessed_data/ima
 U-Net for the semantic segmentation of street trees on images
 ```
 cd main/unet
-python test.py {YOUR_DATASET_PATH}/preprocessed_data/image_processed {YOUR_DATASET_PATH}/preprocessed_data/image_seg
+python test.py '{YOUR_DATASET_PATH}/preprocessed_data/image_processed' '{YOUR_DATASET_PATH}/preprocessed_data/image_seg'
 
 ```  
 
 ### 🚗Single frame processing
-Conduct processing for single frames
+Conduct processing for single frames.  
+Result files will be located in `{YOUR_DATASET_PATH}/result`. This path is further called `{YOUR_RESULT_PATH}`
+
 ```
 cd main
 python launch_sf.py
+```  
+
+### 🚗Single frame to multi frame
+Merge single frames to multi frame
+```
+cd main
+python launch_mf.py '{YOUR_RESULT_PATH}'
+```  
+
+### 🚗Pseudo-plane filter
+Apply pseudo-plane filter
+```
+cd main
+python launch_ppfilter.py '{YOUR_RESULT_PATH}'
+```  
+  
+### 🚗Random Forest classfication
+Apply Random Forest classifier
+```
+cd main
+python rf_feature.py '{YOUR_RESULT_PATH}'
+python rf_infer.py '{YOUR_RESULT_PATH}'
 ```
 
 # 😊❌❌❌ below is temp
