@@ -6,26 +6,6 @@ import natsort
 import warnings
 warnings.filterwarnings('ignore')
 
-# 세그멘테이션 결과물도 나중에 작업하기
-# class imageDataset():
-#     def __init__(self,baseDir):
-#         self.imgDir=os.path.join(baseDir,'image_00_cal_processed/')
-#         self.images=os.listdir(self.imgDir)
-#         self.images = natsort.natsorted(self.images)
-
-#     def __len__(self):
-#         return len(self.images)
-
-#     def __getitem__(self,index):
-#         imgPath=os.path.join(self.imgDir,self.images[index])
-#         image = np.array(Image.open(imgPath).convert("RGB"))
-#         imageName=os.path.splitext(os.path.basename(imgPath))[0]
-#         imageDic={imageName:image}
-
-#         return imageDic
-
-# bb stands for boundingbox
-# The result of Yolo species detection
 class bbDataset():
     def __init__(self,baseDir):
         self.bbDir=os.path.join(baseDir,'image_00_cal_detected_final/labels/')

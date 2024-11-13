@@ -136,7 +136,9 @@ if __name__ == '__main__':
         singleFrameCenterFolder = os.path.join(resultPath,'center_singleFrame')
         singleFrameGroundFolder = os.path.join(resultPath,'ground_singleFrame')
         singleFrameDsmFolder = os.path.join(resultPath,'dsm_singleFrame')
-        logFileName = os.path.join(resultPath,'launch_sf_log.txt')
+        logFolder = os.path.join(resultPath,'log')
+        os.makedirs(logFolder, exist_ok = True)
+        logFileName = os.path.join(logFolder,'launch_sf_log.txt')
 
         os.makedirs(singleFrameTreeFolder, exist_ok = True)
         os.makedirs(singleFrameCenterFolder, exist_ok = True)

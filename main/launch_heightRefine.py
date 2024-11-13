@@ -100,7 +100,9 @@ if __name__ == '__main__':
         resultPath = os.path.join(rootPath,folderList[idx],"result")
         hrData = hrDataset(resultPath)
         treeLocation = np.loadtxt(os.path.join(resultPath,'center_multiframe_ppfilter_rf.txt'))
-        logFileName = os.path.join(resultPath,'launch_heightRefine_log.txt')
+        logFolder = os.path.join(resultPath,'log')
+        os.makedirs(logFolder, exist_ok = True)
+        logFileName = os.path.join(logFolder,'launch_heightRefine_log.txt')
 
     
         # Create DHM and DEM

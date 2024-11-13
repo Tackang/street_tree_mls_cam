@@ -129,6 +129,7 @@ python launch_sf.py
 
 ### 🚗 Single frame to multi frame
 Merge single frames to multi frame
+
 ```
 cd main
 python launch_mf.py 
@@ -136,6 +137,7 @@ python launch_mf.py
 
 ### 🚗 Pseudo-plane filter
 Apply pseudo-plane filter
+
 ```
 cd main
 python launch_ppfilter.py 
@@ -143,10 +145,27 @@ python launch_ppfilter.py
   
 ### 🚗 Random Forest classfication
 Apply Random Forest classifier
+
 ```
 cd main
 python rf_feature.py 
 python rf_infer.py 
+```
+  
+### 🚗 Height refinement
+Calculate DSM,DEM-based height
+
+```
+cd main
+python launch_heightRefine.py 
+```
+   
+### 🚗 Construct inventory
+Construct street tree inventory
+
+```
+cd main
+python construct_inventory.py 
 ```
 
 # 😊❌❌❌ below is temp

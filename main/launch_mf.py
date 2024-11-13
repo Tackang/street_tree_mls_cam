@@ -122,7 +122,9 @@ def main_par(idx, folderList,rootPath):
     dataPath= os.path.join(rootPath,folderList[idx],"preprocessed_data")
     resultPath = os.path.join(rootPath,folderList[idx],"result")
     sfData = sfDataset(resultPath)
-    logFileName = os.path.join(resultPath,'launch_mf_log.txt')
+    logFolder = os.path.join(resultPath,'log')
+    os.makedirs(logFolder, exist_ok = True)
+    logFileName = os.path.join(logFolder,'launch_mf_log.txt')
    
     centerArr = np.zeros(4)
     count =0

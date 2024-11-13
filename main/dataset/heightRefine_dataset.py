@@ -10,7 +10,7 @@ class hrDataset():
 
         self.dsmDir=os.path.join(baseDir,'dsm_singleFrame/')
 
-        self.imuDir=os.path.join(baseDir,'../../preprocessed_data/imu/')
+        self.imuDir=os.path.join(baseDir,'../preprocessed_data/imu/')
 
 
     def __len__(self):
