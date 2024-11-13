@@ -167,6 +167,14 @@ Construct street tree inventory
 cd main
 python construct_inventory.py 
 ```
+   
+### 🚗 Calculate carbon stock
+Calculate tree-level carbon stock and add it to the inventory
+
+```
+cd main
+python calculate_carbon.py 
+```
 
 # 😊❌❌❌ below is temp
 

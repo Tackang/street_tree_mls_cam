@@ -229,11 +229,6 @@ def main_par2(idx, folderList):
     inventory_final = removeInvalidData(inventory, groups)
     # print(inventory_final.shape)
     np.savetxt(os.path.join(resultPath,'inventory_refined.txt'),inventory_final)
-    # np.savetxt(os.path.join('/bess25/didxorkd/04resultCarsense/treeInventory',f'{folderList[idx]}_inventory{dataKey}.txt'),inventory_final)
-    # inventory_csv = utmToWgs(inventory_final)
-    # print(inventory_csv.shape)
-    # inventory_csv.to_csv(os.path.join(mapDir,f'{folderList[idx]}_inventory{dataKey}.csv'),sep=',')
-    # inventory_csv.to_csv(os.path.join('/bess25/didxorkd/04resultCarsense/treeInventory','inventory{}_{}.csv'.format(dataKey,folderList[idx])),sep=',')
 
 
 if __name__ =="__main__":
