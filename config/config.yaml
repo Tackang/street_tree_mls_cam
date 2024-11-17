@@ -1,0 +1,6 @@
+rootPath: "/your_dataset_folder/"
+folderList:
+  - "your_dataset_folder_name1"
+  - "your_dataset_folder_name2"
+  - "your_dataset_folder_name3"
+  - "your_dataset_folder_name4"
